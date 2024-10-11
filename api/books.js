@@ -82,6 +82,7 @@ router.delete("/:id", async (req, res, next) => {
 
     await prisma.book.delete({ where: { id: +id } });
     res.sendStatus(204);
+    res.message(`Book with id: ${id} deleted.`);
   } catch (error) {
     next(error);
   }
